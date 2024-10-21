@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân công trực nhật lớp</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9f5ff;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            background-color: #ffffff;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        th {
+            background-color: #4CAF50; /* Màu xanh lá */
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        tr:hover {
+            background-color: #d7e8ff;
+            transform: scale(1.02);
+        }
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Phân công trực nhật lớp</h1>
+<table>
+    <tr>
+        <th>Thứ</th>
+        <th>Lau bảng</th>
+        <th>Quét lớp đầu giờ</th>
+        <th>Trực cuối giờ</th>
+    </tr>
+    <tr>
+        <td>Thứ Hai</td>
+        <td>Minh Đăng</td>
+        <td>Chí Tùng, Phúc Đức</td>
+        <td>An Khang, Mỹ Duyên</td>
+    </tr>
+    <tr>
+        <td>Thứ Ba</td>
+        <td>Hoàng Phúc</td>
+        <td>Chi Mai, Khánh Ngân</td>
+        <td>Minh Duy, Yến Vy</td>
+    </tr>
+    <tr>
+        <td>Thứ Tư</td>
+        <td>Phúc Đức</td>
+        <td>Bảo Khang, Minh Đăng</td>
+        <td>Chí Tùng, Khánh Ngân</td>
+    </tr>
+    <tr>
+        <td>Thứ Năm</td>
+        <td>Minh Duy</td>
+        <td>An Khang, Phúc Đức</td>
+        <td>Hoàng Phúc, Mỹ Duyên</td>
+    </tr>
+    <tr>
+        <td>Thứ Sáu</td>
+        <td>Yến Vy</td>
+        <td>Chí Tùng, Bảo Khang</td>
+        <td>Minh Đăng, Hoàng Phúc</td>
+    </tr>
+</table>
+
+</body>
+</html>
