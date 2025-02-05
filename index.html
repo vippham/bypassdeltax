@@ -3,138 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deltax Key Bypasser Azurite</title>
+    <title>Lời Chúc Tết May Mắn</title>
     <style>
         body {
+            background: linear-gradient(45deg, #c62828, #f57c00);
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #121212, #1e1e1e);
-            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 0;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-sizing: border-box;
         }
+
         .container {
-            width: 100%;
-            max-width: 800px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        h1 {
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            width: 90%;
             text-align: center;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            position: relative;
+            border: 3px solid #ffd700;
         }
-        textarea {
+
+        .banner {
+            background: #c62828;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        #chucText {
             width: 100%;
-            height: 150px;
-            border-radius: 4px;
-            border: none;
-            padding: 10px;
-            font-size: 14px;
-            background-color: #333;
-            color: #fff;
+            height: 120px;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            margin: 20px 0;
             resize: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.5;
+            background: #fff9e6;
+            box-sizing: border-box;
         }
-        button {
-            background: linear-gradient(to right, #007bff, #0056b3);
+
+        #getChucBtn {
+            background: #c62828;
             color: white;
             border: none;
-            border-radius: 4px;
-            padding: 10px 15px;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 14px;
-            margin: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        button:hover {
+
+        #getChucBtn:hover {
+            background: #b71c1c;
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        .result-section {
+
+        .decorations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .lantern {
+            position: absolute;
+            width: 50px;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flower {
+            position: absolute;
+            width: 40px;
+            bottom: -20px;
+            right: -15px;
+            transform: rotate(30deg);
+        }
+
+        .message {
+            color: #4a4a4a;
             margin-top: 20px;
-            padding: 16px;
-            background-color: #2c2c2c;
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-style: italic;
         }
-        .result-section h2 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-        .result-section pre {
-            margin: 0;
-            font-size: 14px;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        .made-by {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #ccc;
-            text-align: center;
-        }
-        .made-by strong {
-            font-weight: bold;
+
+        @media (max-width: 600px) {
+            .banner {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            #chucText {
+                font-size: 16px;
+            }
+
+            #getChucBtn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .lantern {
+                width: 40px;
+            }
+
+            .flower {
+                width: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>DeltaxKey Bypasser by Azurite(Enter Platoboost to get lootlink first then using this website to Bypass)</h1>
-        <textarea id="inputUrl" placeholder="Nhập URL cần Bypass..."></textarea>
-        <div style="text-align: center;">
-            <button onclick="decodeUrl()">Bypass</button>
-            <button onclick="clearAll()">Clear</button>
-        </div>
-        <div class="result-section" id="result" style="display:none;">
-            <h2>Kết quả: URL Đã Được Bypass</h2>
-            <pre class="final-url"></pre>
-        </div>
+        <img src="https://i.imgur.com/6J93Q2L.png" class="lantern" alt="Đèn lồng">
+        <div class="banner">🎉 Lời Chúc Tết May Mắn 🎊</div>
+        
+        <textarea id="chucText" readonly placeholder="Nhấn nút để nhận lời chúc may mắn!"></textarea>
+        
+        <button id="getChucBtn">🎁 Nhận Lời Chúc</button>
+        
+        <p class="message">Chúc bạn một năm mới:<br>
+        "Sức khỏe dồi dào - Thành công rực rỡ<br>
+        Hạnh phúc tràn đầy - Lộc phúc đong đầy"</p>
+        
+        <img src="https://i.imgur.com/XWpGp3N.png" class="flower" alt="Hoa mai">
     </div>
-    <div class="made-by">Made by <strong>azurite</strong></div>
 
     <script>
-        function decodeUrl() {
-            const inputUrl = document.getElementById('inputUrl').value;
-            if (!inputUrl) {
-                alert("Vui lòng nhập URL");
-                return;
-            }
+        // Mảng các câu chúc Tết
+        const cauChuc = [
+            "Chúc bạn năm mới vui vẻ, sức khỏe dồi dào, công việc thuận lợi và gia đình luôn hạnh phúc!",
+            "Một năm mới an lành, mọi việc như ý và luôn đầy ắp tiếng cười bên gia đình yêu thương!",
+            "Chúc bạn mỗi ngày trong năm mới đều tràn đầy niềm vui, tình yêu và những khoảnh khắc đáng nhớ!",
+            "Năm mới đến, chúc bạn đón nhận mọi cơ hội mới, gặp thật nhiều may mắn và thành công trong mọi lĩnh vực!",
+            "Chúc bạn có một năm mới thật sự ý nghĩa, mọi thứ đều suôn sẻ và luôn được bao quanh bởi yêu thương!",
+            "Năm mới, chúc bạn có một trái tim hạnh phúc và một tinh thần kiên cường, đối mặt với mọi thử thách!",
+            "Chúc bạn một năm mới tràn ngập niềm vui, sức khỏe và những thành công trong công việc cũng như trong cuộc sống!",
+            "Năm mới, chúc bạn đón nhận thật nhiều niềm vui, và năm nay sẽ là một năm tuyệt vời với bạn và gia đình!",
+            "Mong rằng năm mới sẽ mang đến cho bạn những niềm vui bất ngờ, nhiều cơ hội và sự thịnh vượng!",
+            "Chúc bạn và gia đình một năm mới bình an, mọi chuyện thuận lợi và tình yêu luôn ngập tràn trong trái tim!",
+            "Chúc bạn trong năm mới, mọi khó khăn đều trở thành cơ hội và tất cả ước mơ của bạn sẽ thành hiện thực!",
+            "Năm mới, chúc bạn luôn mạnh mẽ và kiên cường, vượt qua mọi thử thách và đạt được những thành công lớn!",
+            "Chúc bạn một năm mới an khang thịnh vượng, tình yêu tràn ngập và công việc suôn sẻ, thuận lợi!",
+            "Mong rằng mỗi khoảnh khắc trong năm mới của bạn đều đầy ắp yêu thương và sự đầm ấm bên gia đình!",
+            "Chúc bạn một năm mới sáng ngời, luôn tràn đầy năng lượng và đón nhận mọi cơ hội trong cuộc sống!",
+            "Chúc bạn một năm mới với thật nhiều may mắn, thành công trong công việc, sức khỏe dồi dào và hạnh phúc viên mãn!"
+        ];
 
-            try {
-                // Giải mã URL
-                const urlDecoded = decodeURIComponent(inputUrl);
-                const base64Part = urlDecoded.split('r=')[1];
-                if (!base64Part) throw new Error("Không tìm thấy phần base64 trong URL đã giải mã");
+        // Lấy phần tử HTML
+        const chucText = document.getElementById("chucText");
+        const getChucBtn = document.getElementById("getChucBtn");
 
-                // Giải mã base64
-                const finalUrl = atob(base64Part);
-
-                // Hiển thị kết quả
-                document.querySelector('.final-url').textContent = finalUrl;
-                document.getElementById('result').style.display = 'block';
-            } catch (e) {
-                alert("Lỗi giải mã: " + e.message);
-                clearAll();
-            }
+        // Hàm lấy ngẫu nhiên một câu chúc
+        function layCauChuc() {
+            const randomIndex = Math.floor(Math.random() * cauChuc.length);
+            chucText.value = cauChuc[randomIndex];
+            chucText.style.animation = 'none';
+            void chucText.offsetWidth; // Trigger reflow
+            chucText.style.animation = 'textAppear 0.5s ease';
         }
 
-        function clearAll() {
-            document.getElementById('inputUrl').value = '';
-            document.querySelector('.final-url').textContent = '';
-            document.getElementById('result').style.display = 'none';
-        }
+        // Thêm animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes textAppear {
+                0% { transform: scale(0.9); opacity: 0; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Gán sự kiện
+        getChucBtn.addEventListener("click", layCauChuc);
+
+        // Hiển thị ngẫu nhiên ban đầu
+        layCauChuc();
     </script>
 </body>
 </html>
