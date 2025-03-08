@@ -3,236 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lời Chúc Tết May Mắn</title>
+    <title>Chúc Mừng Ngày 8/3 - Mẹ Yêu</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap');
+        
         body {
-            background: linear-gradient(45deg, #c62828, #f57c00);
-            font-family: 'Arial', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            padding: 0;
+            background: linear-gradient(135deg, #ffcdd2, #f8bbd0);
+            font-family: 'Roboto', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
-            position: relative;
         }
-
+        
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            max-width: 100%;
-            width: 90%;
             text-align: center;
             position: relative;
-            border: 3px solid #ffd700;
-            z-index: 10;
+            z-index: 1;
         }
-
-        .banner {
-            background: #c62828;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
-
-        #chucText {
-            width: 100%;
-            height: 120px;
-            padding: 15px;
-            font-size: 18px;
-            border: 2px solid #ffd700;
-            border-radius: 10px;
-            margin: 20px 0;
-            resize: none;
-            line-height: 1.5;
-            background: #fff9e6;
-            box-sizing: border-box;
-        }
-
-        #getChucBtn {
-            background: #c62828;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 18px;
-            border-radius: 25px;
+        
+        .dome-container {
+            position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            margin: 20px auto;
+            transition: transform 0.5s;
         }
-
-        #getChucBtn:hover {
-            background: #b71c1c;
+        
+        .dome-container:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
-        .message {
-            color: #4a4a4a;
-            margin-top: 20px;
-            font-style: italic;
+        
+        .base {
+            width: 200px;
+            height: 30px;
+            background: #85574e;
+            border-radius: 50%;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
         }
-
-        /* CSS cho bao lì xì */
-        .liXi {
-            position: absolute;
-            width: 60px;
-            height: 100px;
-            background-color: #f44336;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            text-align: center;
-            line-height: 100px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            animation: fall 4s linear infinite;
+        
+        .dome {
+            width: 180px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 90px 90px 10px 10px;
+            margin: -10px auto 0;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
         }
-
-        @keyframes fall {
-            0% {
-                top: -100px;
-                opacity: 1;
-                transform: rotate(0deg);
-            }
-            100% {
-                top: 100vh;
-                opacity: 0;
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Điều chỉnh cho các thiết bị nhỏ */
-        @media (max-width: 600px) {
-            .banner {
-                font-size: 20px;
-                padding: 12px;
-            }
-
-            #chucText {
-                font-size: 16px;
-            }
-
-            #getChucBtn {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-        }
-
-        /* CSS cho credit ở cuối trang */
-        .credit {
+        
+        .flower {
             position: absolute;
             bottom: 20px;
-            width: 100%;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            opacity: 0;
-            animation: showCredit 3s forwards;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.8s ease-in-out;
         }
-
-        /* Animation cho credit */
-        @keyframes showCredit {
+        
+        /* Hidden message */
+        .message-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 10;
+        }
+        
+        .message-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(233, 30, 99, 0.6);
+            transform: translateY(20px);
+            transition: transform 0.5s;
+        }
+        
+        .message-box h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #d81b60;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .message-box p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .message-box .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+        
+        .message-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .message-visible .message-box {
+            transform: translateY(0);
+        }
+        
+        /* Floating petals animation */
+        .petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .petal-float {
+            position: absolute;
+            background: radial-gradient(circle at center, #f8bbd0, #e91e63);
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            animation: float 12s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float {
             0% {
-                bottom: -50px;
                 opacity: 0;
+                transform: translateY(-20px) rotate(0deg);
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
             }
             100% {
-                bottom: 20px;
-                opacity: 1;
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
             }
         }
-
-        .heart {
-            color: red;
-            font-size: 24px;
-            margin-left: 5px;
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .dome {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .base {
+                width: 160px;
+            }
+            
+            .message-box {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+        
+        /* Button styles */
+        .btn {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+        }
+        
+        .btn:hover {
+            background: #d81b60;
+        }
+        
+        /* Slide styles */
+        .message-content {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
+        .message-slide {
+            position: absolute;
+            opacity: 0;
+            transition: all 0.8s ease;
+            width: 80%;
+            padding: 0 10%;
+        }
+
+        .message-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message-box {
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .flower-png {
+            width: 120px;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 0 8px rgba(233, 30, 99, 0.4));
+        }
+
+        .flower-png:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
     </style>
 </head>
 <body>
+    <!-- Floating petals background -->
+    <div class="petals" id="petals"></div>
+    
     <div class="container">
-        <div class="banner">🎉 Lời Chúc Tết May Mắn 🎊</div>
+        <h1>Chúc Mừng Ngày 8/3</h1>
         
-        <textarea id="chucText" readonly placeholder="Nhấn nút để nhận lời chúc may mắn!"></textarea>
-        
-        <button id="getChucBtn">🎁 Nhận Lời Chúc</button>
-        
-        <p class="message">Chúc bạn một năm mới:<br>
-        "Sức khỏe dồi dào - Thành công rực rỡ<br>
-        Hạnh phúc tràn đầy - Lộc phúc đong đầy"</p>
+        <!-- Glass dome with flower -->
+        <div class="dome-container" id="dome">
+            <div class="dome">
+                <img src="rose.png" class="flower-png" alt="Hoa hồng">
+            </div>
+            <div class="base"></div>
+        </div>
+    </div>
+    
+    <!-- Hidden message that appears on click -->
+    <div class="message-container" id="message">
+        <div class="message-box">
+            <span class="close" id="close-message">&times;</span>
+            <div class="message-content">
+                <!-- Slide messages -->
+                <div class="message-slide message-active">
+                    <h2>Gửi Mẹ Yêu Thương</h2>
+                    <p>Mẹ ơi, trong ngày đặc biệt này, con muốn nói lời cảm ơn từ trái tim mình. Cảm ơn Mẹ đã luôn là người mạnh mẽ nhất, yêu thương nhất và dịu dàng nhất trong cuộc đời con.</p>
+                </div>
+                
+                <div class="message-slide">
+                    <h2>Người Phụ Nữ Tuyệt Vời Nhất</h2>
+                    <p>Mẹ là người phụ nữ tuyệt vời nhất trong cuộc đời con. Mỗi bước đi của con đều có dấu ấn của Mẹ, mỗi thành công của con đều nhờ sự hy sinh thầm lặng của Mẹ.</p>
+                </div>
+
+                <div class="message-slide">
+                    <h2>Lời Cảm Ơn Từ Trái Tim</h2>
+                    <p>Cảm ơn Mẹ vì đã cho con cuộc sống này. Cảm ơn Mẹ vì đã dạy con biết yêu thương, biết sống tử tế và biết trân trọng những điều giản dị.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn prev-btn">❮</button>
+                <button class="btn next-btn">❯</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Mảng các câu chúc Tết
-        const cauChuc = [
-            "Chúc bạn năm mới vui vẻ, sức khỏe dồi dào, công việc thuận lợi và gia đình luôn hạnh phúc!",
-            "Một năm mới an lành, mọi việc như ý và luôn đầy ắp tiếng cười bên gia đình yêu thương!",
-            "Chúc bạn mỗi ngày trong năm mới đều tràn đầy niềm vui, tình yêu và những khoảnh khắc đáng nhớ!",
-            "Năm mới đến, chúc bạn đón nhận mọi cơ hội mới, gặp thật nhiều may mắn và thành công trong mọi lĩnh vực!",
-            "Chúc bạn có một năm mới thật sự ý nghĩa, mọi thứ đều suôn sẻ và luôn được bao quanh bởi yêu thương!"
-        ];
+        // Create floating petals
+        const petalsContainer = document.getElementById('petals');
+        const colors = ['#f8bbd0', '#f48fb1', '#f06292', '#ec407a', '#e91e63'];
+        
+        for (let i = 0; i < 30; i++) {
+            const size = Math.random() * 15 + 5;
+            const petal = document.createElement('div');
+            petal.className = 'petal-float';
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.background = colors[Math.floor(Math.random() * colors.length)];
+            petal.style.left = `${Math.random() * 100}%`;
+            petal.style.animationDelay = `${Math.random() * 12}s`;
+            petal.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            petal.style.opacity = '0';
+            petalsContainer.appendChild(petal);
+        }
+        
+        // Dome click handler
+        const dome = document.getElementById('dome');
+        const message = document.getElementById('message');
+        const closeMessage = document.getElementById('close-message');
+        const nextBtn = document.querySelector('.next-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.message-slide');
+        const totalSlides = slides.length;
 
-        // Lấy phần tử HTML
-        const chucText = document.getElementById("chucText");
-        const getChucBtn = document.getElementById("getChucBtn");
-
-        // Hàm lấy ngẫu nhiên một câu chúc
-        function layCauChuc() {
-            const randomIndex = Math.floor(Math.random() * cauChuc.length);
-            chucText.value = cauChuc[randomIndex];
-            chucText.style.animation = 'none';
-            void chucText.offsetWidth; // Trigger reflow
-            chucText.style.animation = 'textAppear 0.5s ease';
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('message-active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('message-active');
         }
 
-        // Thêm animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes textAppear {
-                0% { transform: scale(0.9); opacity: 0; }
-                100% { transform: scale(1); opacity: 1; }
+        // Show message when dome is clicked
+        dome.addEventListener('click', function() {
+            message.classList.add('message-visible');
+            
+            // Create special effects when message appears
+            for (let i = 0; i < petalsContainer.children.length; i++) {
+                petalsContainer.children[i].style.opacity = '0.8';
             }
-        `;
-        document.head.appendChild(style);
+            
+            // Make the flower in the dome grow and glow
+            const flower = document.querySelector('.flower-png');
+            flower.style.transform = 'translateX(-50%) scale(1.1)';
+            flower.style.filter = 'drop-shadow(0 0 10px #e91e63)';
+            
+            setTimeout(() => {
+                flower.style.transform = 'translateX(-50%) scale(1)';
+                flower.style.filter = 'none';
+            }, 2000);
+        });
+        
+        // Close message
+        closeMessage.addEventListener('click', function() {
+            message.classList.remove('message-visible');
+        });
+        
+        // Next and previous button handlers
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
 
-        // Gán sự kiện
-        getChucBtn.addEventListener("click", layCauChuc);
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
 
-        // Tạo hiệu ứng bao lì xì rơi xuống
-        function createLiXi() {
-            const liXi = document.createElement('div');
-            liXi.classList.add('liXi');
-            liXi.style.left = `${Math.random() * 100}%`; // Đặt vị trí ngẫu nhiên từ trái sang phải
-            document.body.appendChild(liXi);
-
-            // Sau khi animation kết thúc, xóa bao lì xì khỏi DOM
-            liXi.addEventListener('animationend', () => {
-                liXi.remove();
-            });
-        }
-
-        // Thêm bao lì xì mỗi giây
-        setInterval(createLiXi, 1000);
-
-        // Hiển thị ngẫu nhiên ban đầu
-        layCauChuc();
+        // Initialize slider
+        showSlide(0);
     </script>
-
-    <!-- Credit -->
-    <div class="credit">
-        Made with <span class="heart">❤️</span> by An Khang
-    </div>
-
 </body>
 </html>
